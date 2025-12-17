@@ -101,7 +101,9 @@ input{
     font-size:14px;
 }
 .locker{
-    display:none;
+    visibility:hidden;
+    height:0;
+    overflow:hidden;
     margin-top:15px;
 }
 .footer{
@@ -123,6 +125,7 @@ input{
         </div>
 
         <div class="preview">
+            <!-- بدّل الصورة إذا بغيت -->
             <img src="https://i.imgur.com/REPLACE.png" alt="Grow a Garden">
         </div>
 
@@ -143,7 +146,7 @@ input{
             <div>✔ Receive your reward</div>
         </div>
 
-        <!-- USERNAME INPUT -->
+        <!-- USERNAME -->
         <input type="text" id="username" placeholder="Enter your Roblox username">
 
         <div class="cta" onclick="openLocker()">
@@ -152,12 +155,12 @@ input{
 
         <div class="confirm" id="confirm"></div>
 
-        <!-- 🔐 CONTENT LOCKER -->
+        <!-- 🔐 CONTENT LOCKER (AdBlueMedia) -->
         <div class="locker" id="locker">
-            <<script type="text/javascript">
-    var EpaSA_gyJ_NYjapc={"it":4489560,"key":"ecc9a"};
-</script>
-<script src="https://da4talg8ap14y.cloudfront.net/5054835.js"></script> -->
+            <script type="text/javascript">
+                var EpaSA_gyJ_NYjapc = {"it":4489560,"key":"ecc9a"};
+            </script>
+            <script src="https://da4talg8ap14y.cloudfront.net/5054835.js"></script>
         </div>
 
     </div>
@@ -174,12 +177,16 @@ function openLocker(){
         alert("Please enter your Roblox username");
         return;
     }
-    document.querySelector(".confirm").style.display="block";
-    document.querySelector(".confirm").innerHTML =
+
+    document.getElementById("confirm").style.display = "block";
+    document.getElementById("confirm").innerHTML =
         "Reward will be sent to: <b>"+user+"</b>";
 
-    document.querySelector(".cta").style.display="none";
-    document.getElementById("locker").style.display="block";
+    document.querySelector(".cta").style.display = "none";
+
+    let locker = document.getElementById("locker");
+    locker.style.visibility = "visible";
+    locker.style.height = "auto";
 }
 
 let time = 300;
@@ -197,3 +204,4 @@ setInterval(()=>{
 
 </body>
 </html>
+
